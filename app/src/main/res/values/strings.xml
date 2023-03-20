@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Vecore</string>
+    <string name="tv_title_laporankeluhan">Laporan Keluhan</string>
+    <string name="dummy_reportId">reportId</string>
+    <string name="dummy_reportDate">Senin,1 Jan - 12:30</string>
+    <string name="dummy_reportStatus">status</string>
+    <string name="dummy_vehicleName">vehicleName</string>
+    <string name="dummy_licenseNumber">B-XXXX-AC</string>
+    <string name="dummy_ReportBy">reportBy</string>
+    <string name="tvTitle_ComplaintNotes">Catatan Keluhan :</string>
+    <string name="dummy_contentComplaintNotes">Lorem ipsum dolor sit amet, Et modi eaque ut veritatis minima rem sunt repellendus est voluptatum repellendus ab adipisci obcaecati cum aperiam aliquid</string>
 </resources>

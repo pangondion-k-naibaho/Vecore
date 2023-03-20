@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_circle_grey">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_warning"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvTitle_Laporan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/cl_warning"
+        app:layout_constraintTop_toTopOf="@+id/cl_warning"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/tv_title_laporankeluhan"/>
+
+    <TextView
+        android:id="@+id/tvReportId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle_Laporan"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_warning"
+        android:textColor="@color/colorGreyHard"
+        android:textSize="14sp"
+        android:text="@string/dummy_reportId"/>
+
+    <TextView
+        android:id="@+id/tvReportDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle_Laporan"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="@string/dummy_reportDate"/>
+
+    <TextView
+        android:id="@+id/tvReportStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvReportId"
+        app:layout_constraintBottom_toBottomOf="@+id/tvReportId"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_status_green"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="35dp"
+        android:paddingVertical="4dp"
+        android:text="@string/dummy_reportStatus"/>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvReportStatus"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGreySoft"/>
+
+    <ImageView
+        android:id="@+id/ivIcVehicle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_car_grey"/>
+
+    <TextView
+        android:id="@+id/tvTitle_VehicleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ivIcVehicle"
+        app:layout_constraintTop_toTopOf="@+id/ivIcVehicle"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/dummy_vehicleName"/>
+
+    <TextView
+        android:id="@+id/tvLicenseNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvReportStatus"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle_VehicleName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle_VehicleName"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_vehicle_red"
+        android:paddingHorizontal="22dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/black"
+        android:text="@string/dummy_licenseNumber"/>
+
+    <ImageView
+        android:id="@+id/ivIcReportBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/ivIcVehicle"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcVehicle"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_person_grey"/>
+
+    <TextView
+        android:id="@+id/tvTitle_ReportBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle_VehicleName"
+        app:layout_constraintTop_toTopOf="@+id/ivIcReportBy"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/dummy_ReportBy"/>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle_ReportBy"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGreySoft"/>
+
+    <ImageView
+        android:id="@+id/ivIcNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/ivIcReportBy"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_note_grey"/>
+
+    <TextView
+        android:id="@+id/tvTitle_ComplaintNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle_ReportBy"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="@string/tvTitle_ComplaintNotes"/>
+
+    <TextView
+        android:id="@+id/tvContent_ComplaintNotes"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle_ComplaintNotes"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle_ComplaintNotes"
+        android:lines="2"
+        android:ellipsize="end"
+        android:textSize="15sp"
+        android:textColor="@color/colorGreyHard"
+        android:text="@string/dummy_contentComplaintNotes"/>
+
+    <ImageView
+        android:id="@+id/ivContent_ComplaintNotes"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle_ComplaintNotes"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_image"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
