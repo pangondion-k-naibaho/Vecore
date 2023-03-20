@@ -5,10 +5,15 @@
       <map>
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_circle_grey.xml" value="0.137" />
+        <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_circle_hardgrey.xml" value="0.137" />
+        <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_circle_softgrey.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_hardgrey.xml" value="0.137" />
+        <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_header.xml" value="0.137" />
+        <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_plain_stroke_grey.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_primary.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_softgrey.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_white.xml" value="0.137" />
+        <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_rectangle_white_stroke_grey.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_status_green.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_status_red.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_status_yellow.xml" value="0.137" />
@@ -20,6 +25,7 @@
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_vehicle_red.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/bg_vehicle_yellow.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/ic_launcher_background.xml" value="0.137" />
+        <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/ic_search.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/drawable/ic_warning.xml" value="0.137" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/layout/activity_main.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/dionk/AndroidStudioProjects/Vecore/app/src/main/res/layout/layout_itemrv.xml" value="0.2734375" />

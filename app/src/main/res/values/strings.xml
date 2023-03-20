@@ -9,4 +9,7 @@
     <string name="dummy_ReportBy">reportBy</string>
     <string name="tvTitle_ComplaintNotes">Catatan Keluhan :</string>
     <string name="dummy_contentComplaintNotes">Lorem ipsum dolor sit amet, Et modi eaque ut veritatis minima rem sunt repellendus est voluptatum repellendus ab adipisci obcaecati cum aperiam aliquid</string>
+    <string name="tvTitle_RepComplaintVehicle">Laporan Keluhan Kendaraan</string>
+    <string name="tv_userFullname">Pangondion K Naibaho</string>
+    <string name="btntext_MakeReport">Buat Laporan Keluhan Baru</string>
 </resources>
