@@ -24,4 +24,10 @@
     <color name="colorPurpleHard">#721BE4</color>
     <color name="colorGreySoft">#AAAAAA</color>
     <color name="colorGreyHard">#6E6E6E</color>
+    <color name="colorDonkerBlueHard">#002AFF</color>
+    <color name="colorDonkerBlueSoft">#C1CBFF</color>
+    <color name="colorPinkHard">#FF00BF</color>
+    <color name="colorPinkSoft">#FDCCF1</color>
+    <color name="colorGreenHighlightHard">#C8FF00</color>
+    <color name="colorGreenHighlightSoft">#EDFABD</color>
 </resources>
