@@ -11,6 +11,13 @@ class Utils {
         }
     }
 
+    interface NETWORKING{
+        companion object{
+            const val BASE_URL = "https://public-api-staging.fleetify.id/api/android/"
+            const val USER_ID = "gJHhrGKYP6"
+        }
+    }
+
     interface CARS{
         companion object{
             const val DAIHATSU_AVANZA = "Daihatsu Avanza"

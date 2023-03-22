@@ -22,7 +22,7 @@ import com.pangondionkn.vecore.model.Utils.REPORT_STATUS.Companion.NOT_SENT
 import com.pangondionkn.vecore.model.data_class.ReportResponse
 
 class ListReportAdapter(
-    var data: ArrayList<ReportResponse>?= null,
+    var data: List<ReportResponse>?= null,
 ): RecyclerView.Adapter<ListReportAdapter.ItemHolder>() {
 
     inner class ItemHolder(itemView: View): RecyclerView.ViewHolder(itemView){
