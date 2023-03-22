@@ -39,7 +39,7 @@
         android:layout_marginStart="20dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="19sp"
         android:text="@string/tv_title_laporankeluhan"/>
 
     <TextView
@@ -48,8 +48,12 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/tvTitle_Laporan"
         app:layout_constraintBottom_toBottomOf="@+id/cl_warning"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle_Laporan"
+        android:layout_marginTop="10dp"
         android:textColor="@color/colorGreyHard"
-        android:textSize="14sp"
+        android:lines="2"
+        android:maxWidth="150dp"
+        android:textSize="12sp"
         android:text="@string/dummy_reportId"/>
 
     <TextView
@@ -60,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvTitle_Laporan"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="10dp"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textColor="@color/black"
         android:text="@string/dummy_reportDate"/>
 
@@ -179,11 +183,12 @@
 
     <TextView
         android:id="@+id/tvContent_ComplaintNotes"
-        android:layout_width="220dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/tvTitle_ComplaintNotes"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle_ComplaintNotes"
         android:lines="2"
+        android:maxWidth="200dp"
         android:ellipsize="end"
         android:textSize="15sp"
         android:textColor="@color/colorGreyHard"
