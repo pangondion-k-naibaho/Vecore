@@ -12,4 +12,8 @@
     <string name="tvTitle_RepComplaintVehicle">Laporan Keluhan Kendaraan</string>
     <string name="tv_userFullname">Pangondion K Naibaho</string>
     <string name="btntext_MakeReport">Buat Laporan Keluhan Baru</string>
+    <string name="tvTitle_ReportForm">Form Laporan Keluhan</string>
+    <string name="dummy_time">Kamis 23 Mar - 18:30</string>
+    <string name="dummy_option_dropdown">Dummy Option</string>
+    <string name="btntxt_SendReport">Kirim Laporan</string>
 </resources>

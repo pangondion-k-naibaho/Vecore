@@ -2,9 +2,12 @@ package com.pangondionkn.vecore.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.pangondionkn.vecore.R
 import com.pangondionkn.vecore.databinding.ActivityMainBinding
 import com.pangondionkn.vecore.model.data_class.ReportResponse
 import com.pangondionkn.vecore.view.adapter.ListReportAdapter
@@ -30,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             setUpListReport(listReport)
         })
 
+        setUpBottomSheet()
+
 
     }
 
@@ -44,5 +49,15 @@ class MainActivity : AppCompatActivity() {
         val adapter = ListReportAdapter(listReport)
 
         binding.rvItemReport.adapter = adapter
+    }
+
+    private fun setUpBottomSheet(){
+        binding.btnMakeReport.setOnClickListener {
+            val dialog = BottomSheetDialog(this)
+            val dialogView = LayoutInflater.from(this).inflate(R.layout.layout_bottomsheet, null)
+
+            dialog.setContentView(dialogView)
+            dialog.show()
+        }
     }
 }
