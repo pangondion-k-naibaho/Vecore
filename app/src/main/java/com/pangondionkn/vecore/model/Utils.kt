@@ -1,6 +1,9 @@
 package com.pangondionkn.vecore.model
 
+import android.content.res.Resources
+import android.util.DisplayMetrics
 import com.pangondionkn.vecore.model.data_class.ReportResponse
+import kotlin.math.roundToInt
 
 class Utils {
     interface REPORT_STATUS{
@@ -30,6 +33,15 @@ class Utils {
             const val TOYOTA_AGYA = "Toyota Agya"
             const val WULING = "Wuling"
             const val XENIA = "Xenia"
+        }
+    }
+
+    interface EXTENSION{
+        companion object{
+            fun convertDpToPx(dp: Int): Int {
+                val metrics = Resources.getSystem().displayMetrics
+                return (dp * (metrics.xdpi / DisplayMetrics.DENSITY_DEFAULT)).roundToInt()
+            }
         }
     }
 

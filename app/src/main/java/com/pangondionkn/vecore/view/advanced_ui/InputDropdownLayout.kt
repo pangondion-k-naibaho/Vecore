@@ -4,16 +4,16 @@ import android.content.Context
 import android.hardware.display.DisplayManager
 import android.util.AttributeSet
 import android.util.DisplayMetrics
-import android.view.Display
-import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.PopupWindow
+import android.widget.Spinner
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pangondionkn.vecore.R
 import com.pangondionkn.vecore.databinding.LayoutPopupDropdownBinding
 import com.pangondionkn.vecore.databinding.LayoutSpinnerBinding
+import com.pangondionkn.vecore.model.Utils.EXTENSION.Companion.convertDpToPx
 import com.pangondionkn.vecore.model.data_class.DataVehicleResponse
 import com.pangondionkn.vecore.view.adapter.ItemDropdownAdapter
 
@@ -53,6 +53,23 @@ class InputDropdownLayout: ConstraintLayout {
             dropdownListener?.onClickInput()
             if(listVehicle.size > 0){
                 binding.spReportForm.performClick()
+                if(!popUpWindow.isShowing){
+                    showPopUp()
+                }else{
+                    dismissPopUp()
+                }
+            }
+            isDropdownShown = !isDropdownShown
+        }
+        binding.tvSelectedItem.setOnClickListener{
+            dropdownListener?.onClickInput()
+            if(listVehicle.size > 0){
+                binding.spReportForm.performClick()
+                if(!popUpWindow.isShowing){
+                    showPopUp()
+                }else{
+                    dismissPopUp()
+                }
             }
             isDropdownShown = !isDropdownShown
         }
@@ -76,6 +93,56 @@ class InputDropdownLayout: ConstraintLayout {
         itemDropdownAdapter = ItemDropdownAdapter(listVehicle, customListener)
     }
 
+    fun Spinner.setScrollable(listSize:Int){
+        try {
+            val popup = Spinner::class.java.getDeclaredField("mPopup")
+            popup.isAccessible = true
+
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            val popupWindow = popup.get(this) as android.widget.ListPopupWindow
+
+            // Set popupWindow height to 500px
+            if (listSize >= 5) popupWindow.height = convertDpToPx(250)
+        } catch (e: NoClassDefFoundError) {
+            // silently fail...
+        } catch (e: ClassCastException) {
+        } catch (e: NoSuchFieldException) {
+        } catch (e: IllegalAccessException) {
+        }
+    }
+
+    fun selectedType(item: DataVehicleResponse){
+        setText(item.type)
+    }
+
+    fun setData(list: ArrayList<DataVehicleResponse>){
+        this.listVehicle = list
+        itemDropdownAdapter.updateChecked(list[0])
+        if(list.size>0) setText(list[0].type)
+        itemDropdownAdapter = ItemDropdownAdapter(list, object: ItemDropdownAdapter.CustomListener{
+            override fun onClick(customItem: DataVehicleResponse, position: Int) {
+                itemDropdownAdapter.updateChecked(customItem)
+                selectedType(customItem)
+                dismissPopUp()
+                dropdownListener?.onItemSelected(position, customItem.type)
+            }
+
+
+        })
+        popupBinding.rvItem.apply {
+            layoutManager = LinearLayoutManager(context.applicationContext)
+            adapter = itemDropdownAdapter
+            layoutParams.height = when(itemDropdownAdapter.data.size < 5){
+                true ->{
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                }
+                false ->{
+                    400
+                }
+            }
+        }
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         popUpWindow.width = w
         super.onSizeChanged(w, h, oldw, oldh)
@@ -93,24 +160,17 @@ class InputDropdownLayout: ConstraintLayout {
         binding.tvSelectedItem.text = field
     }
 
-    fun setVisibilityProgressBar(visible: Boolean){
-        when(visible){
-            true ->{
-                binding.pbReportForm.visibility = View.VISIBLE
-            }
-            false ->{
-                binding.pbReportForm.visibility = View.GONE
-            }
-        }
-    }
-
     fun setHint(hint:String){
         binding.tvSelectedItem.text = hint
         binding.tvSelectedItem.setTextColor(ContextCompat.getColor(context, R.color.colorGreyHard))
     }
 
-    private fun setListener(listener: DropdownListener){
+    fun setListener(listener: DropdownListener){
         dropdownListener = listener
+    }
+
+    fun setAdapter(adapter: ItemDropdownAdapter){
+        itemDropdownAdapter = adapter
     }
 
     interface DropdownListener{

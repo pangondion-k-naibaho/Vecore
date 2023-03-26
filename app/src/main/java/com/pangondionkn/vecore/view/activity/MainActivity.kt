@@ -2,6 +2,7 @@ package com.pangondionkn.vecore.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
@@ -9,9 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pangondionkn.vecore.R
 import com.pangondionkn.vecore.databinding.ActivityMainBinding
+import com.pangondionkn.vecore.databinding.LayoutBottomsheetBinding
+import com.pangondionkn.vecore.model.data_class.DataVehicleResponse
 import com.pangondionkn.vecore.model.data_class.ReportResponse
+import com.pangondionkn.vecore.view.adapter.ItemDropdownAdapter
 import com.pangondionkn.vecore.view.adapter.ListReportAdapter
+import com.pangondionkn.vecore.view.advanced_ui.InputDropdownLayout
+import com.pangondionkn.vecore.view.fragment.BottomSheetFragment
 import com.pangondionkn.vecore.viewmodel.MainViewModel
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -33,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             setUpListReport(listReport)
         })
 
-        setUpBottomSheet()
+        getListVehicle()
 
 
     }
@@ -45,19 +52,47 @@ class MainActivity : AppCompatActivity() {
     private fun setUpListReport(listReport: List<ReportResponse>){
         binding.rvItemReport.setHasFixedSize(true)
         binding.rvItemReport.layoutManager = LinearLayoutManager(this)
+        binding.rvItemReport.isNestedScrollingEnabled = false
 
         val adapter = ListReportAdapter(listReport)
 
         binding.rvItemReport.adapter = adapter
     }
 
-    private fun setUpBottomSheet(){
+    private fun getListVehicle(){
         binding.btnMakeReport.setOnClickListener {
-            val dialog = BottomSheetDialog(this)
-            val dialogView = LayoutInflater.from(this).inflate(R.layout.layout_bottomsheet, null)
-
-            dialog.setContentView(dialogView)
-            dialog.show()
+            mainViewModel.getListVehicle()
+            mainViewModel.listVehicle.observe(this, {listVehicle ->
+                setUpBottomSheet(listVehicle)
+            })
         }
+    }
+
+    private fun setUpBottomSheet(listVehicle: List<DataVehicleResponse>){
+        Log.d(TAG, "List of Vehicle: $listVehicle")
+        val bottomsheetDialog = BottomSheetDialog(this)
+        val mBottomSheetDialog = LayoutBottomsheetBinding.inflate(layoutInflater, null, false)
+        bottomsheetDialog.setContentView(mBottomSheetDialog.root)
+
+//        val adapter = ItemDropdownAdapter(ArrayList(listVehicle), object: ItemDropdownAdapter.CustomListener {
+//            override fun onClick(customItem: DataVehicleResponse) {
+//                var selectedVehicle = customItem.type
+//            }
+//
+//        })
+//
+//        mBottomSheetDialog.ddlReportForm.setAdapter(adapter)
+        mBottomSheetDialog.ddlReportForm.apply {
+            Log.d(TAG, "list vehicle_e1: ${ArrayList(listVehicle)}")
+            setData(ArrayList(listVehicle))
+            setListener(object: InputDropdownLayout.DropdownListener{
+                override fun onItemSelected(position: Int, item: String) {
+                    Log.d(TAG, "Selected Item: $item")
+                }
+            })
+        }
+
+        bottomsheetDialog.show()
+//        supportFragmentManager.beginTransaction().replace(R.id.main_activity, BottomSheetFragment.newInstance(listVehicle)).commit()
     }
 }

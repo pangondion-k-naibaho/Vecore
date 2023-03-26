@@ -4,16 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingVertical="8dp"
-    android:paddingHorizontal="1dp"
     android:background="@drawable/bg_rectangle_plain_stroke_grey"
     tools:ignore="MissingDefaultResource">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxHeight="150dp"
-        android:overScrollMode="never"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

@@ -17,11 +17,11 @@ class ItemDropdownAdapter(
     private var context: Context?= null,
 ): RecyclerView.Adapter<ItemDropdownAdapter.ViewHolder>() {
     interface CustomListener{
-        fun onClick(customItem: DataVehicleResponse)
+        fun onClick(customItem: DataVehicleResponse, position: Int)
     }
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        fun bind(item: DataVehicleResponse, listener: CustomListener?){
+        fun bind(item: DataVehicleResponse, listener: CustomListener?, position: Int) = with(itemView){
             val binding = LayoutItemDropdownBinding.bind(itemView)
             binding.tvItemDropdown.text = item.type
             when(item.isSelected){
@@ -32,7 +32,7 @@ class ItemDropdownAdapter(
                     binding.tvItemDropdown.setTextColor(ContextCompat.getColor(context!!, R.color.black))
                 }
             }
-            binding.root.setOnClickListener { listener?.onClick(item)}
+            binding.root.setOnClickListener { listener?.onClick(item, position)}
         }
     }
 
@@ -41,7 +41,7 @@ class ItemDropdownAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        holder.bind(data[position], listener, position)
     }
 
     override fun getItemCount(): Int = data.size

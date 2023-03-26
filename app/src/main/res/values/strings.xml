@@ -16,4 +16,5 @@
     <string name="dummy_time">Kamis 23 Mar - 18:30</string>
     <string name="dummy_option_dropdown">Dummy Option</string>
     <string name="btntxt_SendReport">Kirim Laporan</string>
+    <string name="tvTitle_UploadImage">Dokumen Laporan</string>
 </resources>
