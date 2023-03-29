@@ -5,13 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.pangondionkn.vecore.R
 import com.pangondionkn.vecore.databinding.LayoutBottomsheetBinding
-import com.pangondionkn.vecore.model.data_class.DataVehicleResponse
+import com.pangondionkn.vecore.model.data_class.response.DataVehicleResponse
 
-class BottomSheetFragment(): BottomSheetDialogFragment() {
+class BottomSheetFragment: BottomSheetDialogFragment() {
 
     private lateinit var binding: LayoutBottomsheetBinding
     private lateinit var retrievedListVehicle: ArrayList<DataVehicleResponse>

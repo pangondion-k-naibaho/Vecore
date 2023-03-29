@@ -17,4 +17,5 @@
     <string name="dummy_option_dropdown">Dummy Option</string>
     <string name="btntxt_SendReport">Kirim Laporan</string>
     <string name="tvTitle_UploadImage">Dokumen Laporan</string>
+    <string name="btntxt_AmbilFoto">Ambil Foto</string>
 </resources>

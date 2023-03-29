@@ -1,7 +1,6 @@
 package com.pangondionkn.vecore.view.adapter
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.pangondionkn.vecore.R
 import com.pangondionkn.vecore.databinding.LayoutItemDropdownBinding
-import com.pangondionkn.vecore.model.data_class.DataVehicleResponse
+import com.pangondionkn.vecore.model.data_class.response.DataVehicleResponse
 
 class ItemDropdownAdapter(
     var data: ArrayList<DataVehicleResponse>,

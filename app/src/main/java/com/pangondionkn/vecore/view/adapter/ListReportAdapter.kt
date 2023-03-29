@@ -19,7 +19,7 @@ import com.pangondionkn.vecore.model.Utils.CARS.Companion.WULING
 import com.pangondionkn.vecore.model.Utils.CARS.Companion.XENIA
 import com.pangondionkn.vecore.model.Utils.REPORT_STATUS.Companion.IN_PROCESS
 import com.pangondionkn.vecore.model.Utils.REPORT_STATUS.Companion.NOT_SENT
-import com.pangondionkn.vecore.model.data_class.ReportResponse
+import com.pangondionkn.vecore.model.data_class.response.ReportResponse
 
 class ListReportAdapter(
     var data: List<ReportResponse>?= null,

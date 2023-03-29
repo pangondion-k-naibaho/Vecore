@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/ivIcVehicle"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toEndOf="@+id/ivIcVehicle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="10dp"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:text="Selected item" />

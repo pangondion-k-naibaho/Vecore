@@ -1,4 +1,4 @@
-package com.pangondionkn.vecore.model.data_class
+package com.pangondionkn.vecore.model.data_class.response
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

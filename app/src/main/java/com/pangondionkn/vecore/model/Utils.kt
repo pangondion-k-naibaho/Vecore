@@ -1,8 +1,19 @@
 package com.pangondionkn.vecore.model
 
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.util.DisplayMetrics
-import com.pangondionkn.vecore.model.data_class.ReportResponse
+import android.widget.CalendarView
+import android.widget.ImageView
+import com.pangondionkn.vecore.model.data_class.response.ReportResponse
+import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
 class Utils {
@@ -36,11 +47,93 @@ class Utils {
         }
     }
 
+    interface REQUEST_CODE{
+        companion object{
+            const val CAMERA_REQUEST = 1888
+        }
+    }
+
     interface EXTENSION{
         companion object{
             fun convertDpToPx(dp: Int): Int {
                 val metrics = Resources.getSystem().displayMetrics
                 return (dp * (metrics.xdpi / DisplayMetrics.DENSITY_DEFAULT)).roundToInt()
+            }
+        }
+    }
+
+    interface TIME_UTILS{
+        companion object{
+            fun getDateToday(): String{
+                val formatter = SimpleDateFormat("EE, dd MM - HH:mm")
+                val time = Calendar.getInstance().time
+                val current = formatter.format(time)
+
+                return current
+            }
+        }
+    }
+
+    interface IMAGE_UTILS{
+        companion object{
+            const val PREFERRED_IMAGE_SIZE = 200  //400kb
+            const val ONE_MB_TO_KB = 1024
+
+             fun imageToBitmap(image: ImageView): ByteArray {
+                val bitmap = (image.drawable as BitmapDrawable).bitmap
+                val stream = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream)
+
+                return stream.toByteArray()
+            }
+
+            fun bitmapToByteArray(bitmap: Bitmap): ByteArray{
+                val stream = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream)
+
+                return stream.toByteArray()
+            }
+
+            fun resizePhoto(bitmap: Bitmap): Bitmap {
+
+                val w = bitmap.width
+                val h = bitmap.height
+                val aspRat = w / h
+                val W = 400
+                val H = W * aspRat
+                val b = Bitmap.createScaledBitmap(bitmap, W, H, false)
+
+                return b
+
+            }
+
+            fun reduceBitmap_e2(bitmap: Bitmap):ByteArray{
+                var bitmapCont = bitmap
+                var stream = ByteArrayOutputStream()
+
+                bitmapCont.compress(Bitmap.CompressFormat.JPEG, 50, stream)
+
+                if(stream.toByteArray().size / ONE_MB_TO_KB > PREFERRED_IMAGE_SIZE){
+                    bitmapCont = resizePhoto(bitmapCont)
+                    reduceBitmap_e2(bitmapCont)
+                }
+                return stream.toByteArray()
+            }
+
+            fun reduceBitmap(bitmap: Bitmap): Bitmap{
+                val imageInBitMapAfterResize: Bitmap
+                val baos = ByteArrayOutputStream()
+
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos)
+
+                if (baos.toByteArray().size / ONE_MB_TO_KB > PREFERRED_IMAGE_SIZE) {
+                    //resize photo & set Image in imageview In UI
+                    imageInBitMapAfterResize = resizePhoto(bitmap)
+                }else{
+                    imageInBitMapAfterResize = bitmap
+                }
+
+                return imageInBitMapAfterResize
             }
         }
     }

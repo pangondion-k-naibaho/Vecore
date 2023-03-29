@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="62dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     android:background="@drawable/bg_bottomsheet">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +47,7 @@
     <EditText
         android:id="@+id/et_DatePicker"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle_ReportForm"
@@ -61,7 +63,7 @@
         android:drawablePadding="10dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:text="@string/dummy_time"/>
+        android:hint="@string/dummy_time"/>
 
     <com.pangondionkn.vecore.view.advanced_ui.InputDropdownLayout
         android:id="@+id/ddl_ReportForm"
@@ -115,7 +117,7 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:text="Upload Image"/>
+        android:text="@string/btntxt_AmbilFoto"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSendReport"

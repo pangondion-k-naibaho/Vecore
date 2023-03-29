@@ -14,7 +14,7 @@ import com.pangondionkn.vecore.R
 import com.pangondionkn.vecore.databinding.LayoutPopupDropdownBinding
 import com.pangondionkn.vecore.databinding.LayoutSpinnerBinding
 import com.pangondionkn.vecore.model.Utils.EXTENSION.Companion.convertDpToPx
-import com.pangondionkn.vecore.model.data_class.DataVehicleResponse
+import com.pangondionkn.vecore.model.data_class.response.DataVehicleResponse
 import com.pangondionkn.vecore.view.adapter.ItemDropdownAdapter
 
 class InputDropdownLayout: ConstraintLayout {
@@ -124,7 +124,7 @@ class InputDropdownLayout: ConstraintLayout {
                 itemDropdownAdapter.updateChecked(customItem)
                 selectedType(customItem)
                 dismissPopUp()
-                dropdownListener?.onItemSelected(position, customItem.type)
+                dropdownListener?.onItemSelected(position, customItem.type, customItem)
             }
 
 
@@ -162,7 +162,6 @@ class InputDropdownLayout: ConstraintLayout {
 
     fun setHint(hint:String){
         binding.tvSelectedItem.text = hint
-        binding.tvSelectedItem.setTextColor(ContextCompat.getColor(context, R.color.colorGreyHard))
     }
 
     fun setListener(listener: DropdownListener){
@@ -175,7 +174,7 @@ class InputDropdownLayout: ConstraintLayout {
 
     interface DropdownListener{
         fun onClickInput(){}
-        fun onItemSelected(position: Int, item: String){}
+        fun onItemSelected(position: Int, item: String, selectedData: DataVehicleResponse){}
         fun onDismissPopUp(){}
     }
 }
